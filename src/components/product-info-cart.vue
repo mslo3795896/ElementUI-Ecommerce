@@ -77,7 +77,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .no-blur img{
   filter: none !important;
 }
@@ -93,11 +93,12 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
+  & .el-form-item{
+    margin: 0;
+    width: 100%;
+  }
 }
-.cart-total .el-form-item{
-  margin: 0;
-  width: 100%;
-}
+
 @media only screen and (max-width: 767px){
   .el-input-number{
     width: 100%;
@@ -107,13 +108,12 @@ export default {
   }
   .cart-total{
     flex-direction: row-reverse;
-  }
-  .cart-total .el-form-item{
-    margin-top: 22px;
-  }
-  .cart-total .el-button--danger{
-    margin-left: 10px;
+    & .el-form-item{
+      margin-top: 22px;
+    }
+    & .el-button--danger{
+      margin-left: 10px;
+    }
   }
 }
-
 </style>

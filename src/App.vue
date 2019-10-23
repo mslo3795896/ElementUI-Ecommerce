@@ -1,34 +1,31 @@
 <template>
   <div id="app">
-    <!-- <Main/> -->
     <el-container>
       <custom-header></custom-header>
       <transition name="slide-fade" mode="out-in">
         <router-view></router-view>
       </transition>
-      <el-footer>Copyright © Shopping. All Rights Reserved</el-footer>
+      <el-footer>Copyright © ElementUI-Ecommerce. All Rights Reserved</el-footer>
     </el-container>
   </div>
 </template>
 
 <script>
-// import Main from './views/Main.vue'
 import CustomHeader from './components/custom-header.vue'
 
 export default {
   components: {
-    // Main
     'custom-header': CustomHeader
   }
 }
 </script>
 
 <style>
-#app, button, input {
-  font-family: arial,"Microsoft JhengHei","微軟正黑體", "Open Sans",sans-serif !important;
+body{margin: 0}
+* {
+  font-family: arial,"Microsoft JhengHei","微軟正黑體", "Open Sans",sans-serif;
 }
 .el-main{
-  /* min-height: 90vh; */
   margin-top: 60px;
 }
 footer {

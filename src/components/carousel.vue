@@ -3,11 +3,20 @@
     <el-carousel trigger="click" height="51vh" v-if="showAd">
       <el-carousel-item v-for="path in imgPath" :key="path">
         <!-- <img :src="'~@/assets/static/carousel/' + path + '.jpg'" /> -->
-        <img :src="require(`@/assets/static/carousel/${path}.jpg`)" alt=""/>
+        <img :src="require(`@/assets/static/carousel/${path}.jpg`)" alt />
       </el-carousel-item>
     </el-carousel>
-    <owl-carousel :autoplay="true" :responsive="responsive" :margin="10" :dots="false" :loop="true" v-else>
-      <template slot="prev"><el-button class="prev" icon="el-icon-arrow-left" circle></el-button></template>
+    <owl-carousel
+      :autoplay="true"
+      :responsive="responsive"
+      :margin="10"
+      :dots="false"
+      :loop="true"
+      v-else
+    >
+      <template slot="prev">
+        <el-button class="prev" icon="el-icon-arrow-left" circle></el-button>
+      </template>
       <product-card
         :xs="24"
         :sm="24"
@@ -16,7 +25,9 @@
         :key="index"
         :prod="prod"
       ></product-card>
-      <template slot="next"><el-button class="next" icon="el-icon-arrow-right" circle></el-button></template>
+      <template slot="next">
+        <el-button class="next" icon="el-icon-arrow-right" circle></el-button>
+      </template>
     </owl-carousel>
   </div>
 </template>
@@ -62,46 +73,42 @@ export default {
 }
 </script>
 
-<style>
-.el-carousel__item h3 {
-  color: #475669;
-  font-size: 14px;
-  opacity: 0.75;
-  line-height: 150px;
-  margin: 0;
+<style lang="scss" scoped>
+.el-carousel__item {
+  & img {
+    width: 100%;
+    height: 100%;
+  }
 }
-
-.el-carousel__item img {
-  width: 100%;
-  height: 100%;
-}
-
-.related-prod button.is-circle {
+.related-prod {
+  & button.is-circle {
     position: absolute;
     top: 50%;
     z-index: 2;
     opacity: 0;
-    transition: .2s opacity;
-}
-.related-prod:hover button.is-circle {
+    transition: 0.2s opacity;
+  }
+  &:hover button.is-circle {
     opacity: 1;
-}
-.related-prod button.prev {
+  }
+  & button.prev {
     left: 0;
-}
-.related-prod button.next {
+  }
+  & button.next {
     right: 0;
+  }
+  & ::v-deep span[id*="carousel_prev"] {
+    display: inline !important;
+  }
 }
-.related-prod [id*='carousel_prev']{
-  display: inline !important;
-}
-
 @media only screen and (max-width: 767px) {
-  .el-carousel__container {
+  ::v-deep .el-carousel__container {
     height: 25vh !important;
   }
-  .related-prod button.is-circle {
-    opacity: 1 !important;
+  .related-prod {
+    & button.is-circle {
+      opacity: 1 !important;
+    }
   }
 }
 </style>

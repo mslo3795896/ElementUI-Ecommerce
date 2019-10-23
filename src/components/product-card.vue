@@ -46,7 +46,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .el-divider--horizontal{
   margin: 40px 0;
 }
@@ -64,19 +64,18 @@ export default {
     transition: .5s all;
     pointer-events: none;
 }
-.el-card__body{
+::v-deep .el-card__body{
   position: relative;
   cursor: pointer;
-}
-.el-card__body img{
+  & img{
     transition: .5s all;
-}
-.el-card__body:hover img{
-    -webkit-filter: blur(5px);
+  }
+  &:hover img{
     filter: blur(5px);
-}
-.el-card__body:hover .card-content{
+  }
+  &:hover .card-content{
     bottom: 0px;
     background: #ffffffd1;
+  }
 }
 </style>
